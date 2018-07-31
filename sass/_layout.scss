@@ -1,93 +1,161 @@
-header {
-  margin-top: 2rem;
+.header {
+  .container  {
+    &:after {
+      @include clearfix;
+    }
+  }
+  background-color: $grey-5;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+  border-bottom: 1px solid $grey-4;
+  .logo {
+    float: left;
+    height: 4.4rem;
+    width: 12rem;
+    margin-right: 2rem;
+  }
+  &:after {
+    @include clearfix;
+  }
+
+  .option {
+    margin-left: 16rem;
+    margin-right: 46.1rem;
+
+    a {
+      font-size: 1.3rem;
+      padding: 0 1.5rem;
+      color: $black-7;
+      &:hover {
+        color: $black-2;
+      }
+    }
+
+    .active {
+      font-weight: bold;
+      color: $blue-3;
+      border-bottom: 3px solid $blue-3;
+    }
+
+    .tools {
+      padding: 4px 15px;
+      border: 1px solid transparent;
+      transition: all 0.0s;
+      &:hover {
+        border: 1px solid $grey-3;
+        background-color: $grey-6;
+        background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+        box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      }
+    }
+
+    &__left {
+      float: left;
+      a {
+        padding-bottom: 1.2rem;
+      }
+    }
+    &__right {
+      float: left;
+      margin-left: 11rem;
+    }
+  }
 }
 
 .nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
- a {
-   margin-right: 1.5rem;
-   font-size: 1.3rem;
-   color: rgba($black-1,.87);
-   &:hover {
-     text-decoration: underline;
-   }
- }
- div {
-   margin-right: 2rem;
- }
-
- .fa-th {
-   margin-right: 1rem;
-   font-size: 1.8rem;
-   color: rgba($black-1,.5);
-   transition: all .2s ease-in;
-   &:hover {
-    color: rgba($black-1,.85);
-   }
- }
-
- &__notification {
-   height: 2rem;
-   width: 2rem;
-   background-color: $red-1;
+  float: right;
+  width: 40%;
+  &__box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    a {
+      margin-right: 1.5rem;
+      font-size: 1.3rem;
+      color: rgba($black-1,.87);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    div {
+      margin-right: 2rem;
+    }
+   
+    .fa-th {
+      margin-right: 1rem;
+      font-size: 1.8rem;
+      color: rgba($black-1,.5);
+      transition: all .2s ease-in;
+      &:hover {
+       color: rgba($black-1,.85);
+      }
+    }
+  }
+  &__notification {
+    height: 2rem;
+    width: 2rem;
+    background-color: $red-1;
+    border-radius: 10rem;
+    position: relative;
+    &:hover {
+     background-color: $red-2;
+    }
+    a {
+     @include centerPos;
+      display: inline-block;
+      text-align: center;
+      font-weight: bold;
+      color: $white;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+ 
+  &__account {
+   height: 3.2rem;
+   width: 3.2rem;
+   background-color: $brown-1;
    border-radius: 10rem;
    position: relative;
-   &:hover {
-    background-color: $red-2;
-   }
-   a {
-    @include centerPos;
-     display: inline-block;
-     text-align: center;
-     font-weight: bold;
-     color: $white;
-     &:hover {
+    a {
+      @include centerPos;
+      font-size: 1.5rem;
+      color: $white;
+      &:hover {
        text-decoration: none;
      }
-   }
- }
-
- &__account {
-  height: 3.2rem;
-  width: 3.2rem;
-  background-color: $brown-1;
-  border-radius: 10rem;
-  position: relative;
-   a {
-     @include centerPos;
-     font-size: 1.5rem;
-     color: $white;
-     &:hover {
-      text-decoration: none;
     }
-   }
- }
+  }
 }
-// End header
 
 // Search
 .search {
-  height: 90vh;
+  float: left;
+  width: 30%;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  &__box {
-    text-align: center;
+  &__mic {
+    position: absolute;
+    top: .8rem;
+    left: 57rem;
+    height: 2.5rem;
   }
 
-  img {
-    margin-bottom: 3rem;
+  &__btn {
+    position: absolute;
+    top: .9rem;
+    left: 60rem;
+    height: 2.1rem;
   }
 
   &__input {
     position: relative;
     margin-bottom: 3rem;
+
     &__text {
-      width: 58rem;
+      width: 63.5rem;
       height: 4rem;
       padding: 5px 0;
       padding-left: 1.6rem;
@@ -102,17 +170,6 @@ header {
         @include shadow-2;
       }
     }
-
-    img {
-      position: absolute;
-      top: .8rem;
-      right: 1.8rem;
-      height: 2.5rem;
-    }
-  }
-
-  &__button {
-    margin-bottom: 2.5rem;
   }
 
   input[type="submit"] {
@@ -149,19 +206,153 @@ header {
   }
 }
 // End Search
+// End header
+
+// Search Results
+.result {
+  padding-left: 17.6rem;
+  &__stats {
+    color: $grey-7;
+    line-height: 4.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  &__text {
+    padding-right: 1.5rem;
+    width: 63.5rem;
+    margin-bottom: 3rem;
+    &:after {
+      @include clearfix;
+    }
+    &__box {
+      margin-bottom: 3rem;
+    }
+    h3 {
+      font-size: 1.8rem;
+      color: $blue-2;
+      font-weight: normal;
+      margin-bottom: .6rem;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    cite{
+      font-style: normal;
+      color: $green-1;
+      font-size: 1.4rem;
+      line-height: 1.4;
+    }
+
+    p {
+      line-height: 1.4;
+      color: $grey-8;
+      font-size: 1.3rem;
+      word-wrap: break-word;
+      span {
+        color: $grey-7;
+      }
+    }
+
+    &__related {
+      h3 {
+        color: $black-2;
+        font-weight: normal;
+        margin-bottom: 2rem;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      a {
+        color: $blue-2;
+        display: block;
+        padding: 3px 32px 3px 0;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &-left {
+        float: left;
+        width: 50%;
+      }
+      &-right {
+        float: left;
+        width: 50%;
+      }
+    }
+  }
+
+  &__page {
+    width: 63.5rem;
+    padding-bottom: 3rem;
+
+    &__logo {
+      text-align: center;
+      .g-big {
+        height: 2.5rem;
+      }
+
+      .o {
+        height: 1.7rem;
+      }
+
+      .g-small {
+        height: 2.5rem;
+        position: relative;
+        top: .8rem;
+      }
+
+      .l {
+        height: 2.5rem;
+      }
+
+      .e {
+        height: 1.7rem;
+      }
+      .arrow {
+        position: relative;
+        top: -.5rem;
+        margin-left: 1rem;
+        height: 1.2rem;
+      }
+
+    }
+
+    &__number {
+      text-align: center;
+      margin-top: 1rem;
+      a {
+        font-size: 1.3rem;
+        padding: 0 .5rem;
+        &:not(:first-child) {
+          color: $blue-4;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .next {
+        position: relative;
+        left: 4rem;
+      }
+    }
+  }
+}
+// End Search Results
 
 
 // Footer
 .footer {
-  position: fixed;
   background-color: $grey-1;
-  bottom: 0;
-  width: 100%;
   &__1 {
+    margin-left: 16rem;
     border-top: 1px solid $grey-4;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     p {
-      margin-left: 3rem;
       font-size: 1.5rem;
       color: rgba($black-1,.54);
     }
@@ -169,9 +360,9 @@ header {
 
   &__2 {
     border-top: 1px solid $grey-4;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     font-size: 1.2rem;
-
+    margin-left: 16rem;
     a {
       color: $black-6;
       &:hover {
@@ -181,9 +372,7 @@ header {
 
     &-left {
       float: left;
-      margin-left: 3rem;
       a {
-
         padding-right: 4.7rem;
       }
     }
